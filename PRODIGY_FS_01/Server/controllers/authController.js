@@ -6,15 +6,16 @@ const generateToken = (id) => {
 };
 
 exports.register = async (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, email, password, role } = req.body;
     try {
-        const user = await User.create({ username, email, password });
+        const user = await User.create({ username, email, password, role });
         const token = generateToken(user._id);
         res.status(201).json({ token });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 };
+
 
 exports.login = async (req, res) => {
     const { email, password } = req.body;
