@@ -9,10 +9,9 @@ function App() {
         <Router>
             <div className="container mx-auto p-4">
                 <Routes>
-                    <Route path="/" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/" element={<Login />} />
                     <Route path="/protected" element={<Protected />} />
-                    <Route path="*" element={<div>Default Route</div>} />
                 </Routes>
             </div>
         </Router>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
@@ -47,6 +48,9 @@ const Register = () => {
                 </select>
             </div>
             <button type="submit" className="bg-blue-500 text-white p-2 w-full">Register</button>
+            <p className="mt-4">
+                Already have an account? <Link to="/" className="text-blue-500">Back to Login</Link>
+            </p>
         </form>
     );
 };
