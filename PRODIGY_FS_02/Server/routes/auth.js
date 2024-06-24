@@ -6,14 +6,19 @@ const bcrypt = require('bcryptjs');
 
 // Register a new user
 router.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, phone, password } = req.body;
   try {
     let user = await User.findOne({ username });
     if (user) {
-      return res.status(400).json({ message: 'User already exists' });
+      return res.status(400).json({ message: 'Username already exists' });
     }
 
-    user = new User({ username, password });
+    user = await User.findOne({ email });
+    if (user) {
+      return res.status(400).json({ message: 'Email already exists' });
+    }
+
+    user = new User({ username, email, phone, password });
     await user.save();
 
     const payload = { id: user.id };
@@ -25,11 +30,20 @@ router.post('/register', async (req, res) => {
   }
 });
 
+
 // Login a user
 router.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body;
   try {
-    const user = await User.findOne({ username });
+    let user;
+    if (username) {
+      user = await User.findOne({ username });
+    } else if (email) {
+      user = await User.findOne({ email });
+    } else {
+      return res.status(400).json({ message: 'Username or Email is required' });
+    }
+
     if (!user) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
@@ -47,5 +61,6 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 
 module.exports = router;
