@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { login } from '../services/authService';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -11,7 +12,8 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
-      localStorage.setItem('token', response.data.token);
+      login(response.data.token);
+      localStorage.setItem('username', username); // Set username in localStorage
       navigate('/employees');
     } catch (error) {
       console.error('Invalid credentials', error);

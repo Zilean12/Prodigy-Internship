@@ -42,7 +42,7 @@ const EmployeeForm = () => {
           name,
           position,
           department,
-          salary
+          salary,
         }, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -53,7 +53,7 @@ const EmployeeForm = () => {
           name,
           position,
           department,
-          salary
+          salary,
         }, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -67,48 +67,52 @@ const EmployeeForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl mb-4 text-center">{id ? 'Edit Employee' : 'Add Employee'}</h2>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800">{id ? 'Edit Employee' : 'Add Employee'}</h2>
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Name</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="Enter employee name"
           />
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Position</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Position</label>
           <input
             type="text"
             value={position}
             onChange={(e) => setPosition(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="Enter employee position"
           />
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Department</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Department</label>
           <input
             type="text"
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="Enter employee department"
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Salary</label>
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-700 mb-1">Salary</label>
           <input
             type="number"
             value={salary}
             onChange={(e) => setSalary(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="Enter employee salary"
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition duration-200"
+          className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition duration-200 font-semibold"
         >
           {id ? 'Update' : 'Add'}
         </button>
