@@ -19,7 +19,7 @@ app.use(express.json());
 
 const allowedOrigins = [
     'https://prodigy-internship.onrender.com', 
-    'https://rad-tanuki-cc7eb2.netlify.app'
+    'prodigy-internship-fs01.netlify.app'
   ];
   
   app.use(cors({
