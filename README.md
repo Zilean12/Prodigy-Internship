@@ -31,5 +31,5 @@ Developed an Employee Management System with CRUD (Create, Read, Update, Delete)
 | Task Number | Task Description                          | Live Website Link                                   |
 |-------------|-------------------------------------------|-----------------------------------------------------|
 | Task 1      | Secure User Authentication                | [Live Website](https://prodigy-internship-sigma.vercel.app)|
-| Task 2      | Employee Management System                | [Live Website](https://example.com/task2)           |
+| Task 2      | Employee Management System                | [Live Website](https://prodigy-internship-fsii.vercel.app)|
 
