@@ -16,8 +16,9 @@ app.use(express.json());
 // app.use(cors({
 //     origin: 'https://prodigy-internship-client.onrender.com' // Change this to your client's URL
 // }));
+
 const allowedOrigins = [
-    'https://prodigy-internship-client.onrender.com', 
+    'https://prodigy-internship.onrender.com', 
     'https://rad-tanuki-cc7eb2.netlify.app'
   ];
   
