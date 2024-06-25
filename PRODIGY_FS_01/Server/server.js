@@ -19,7 +19,8 @@ app.use(express.json());
 
 const allowedOrigins = [
     'https://prodigy-internship.onrender.com', 
-    'https://prodigy-internship-fs01.netlify.app'
+    'https://prodigy-internship-fs01.netlify.app',
+    'https://prodigy-internship-sigma.vercel.app'
   ];
   
   app.use(cors({
