@@ -12,7 +12,10 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    origin: 'https://prodigy-internship-client.onrender.com' // Change this to your client's URL
+}));
 
 // Routes
 app.use('/api/auth', authRoutes); // Ensure authRoutes are correctly imported
