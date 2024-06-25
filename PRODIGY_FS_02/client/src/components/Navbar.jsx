@@ -124,7 +124,6 @@ import { isAuthenticated, logout } from '../services/authService';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const username = localStorage.getItem('username');
 
   const handleLogout = () => {
     logout();
@@ -175,9 +174,8 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          {isAuthenticated() && username && (
+          {isAuthenticated() && (
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <span className="text-white font-medium mr-4">{username}</span>
               <button
                 onClick={handleLogout}
                 className="bg-gray-800 text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out"
