@@ -35,12 +35,17 @@ exports.login = async (req, res) => {
 // exports.protected = (req, res) => {
 //     res.status(200).json({ message: 'Protected route accessed' });
 // };
-exports.protected = (req, res) => {
-    res.status(200).json({
-        message: 'Protected route accessed',
-        user: {
-            username: req.user.username,
-            email: req.user.email
-        }
-    });
+// Handler for protected routes
+exports.protected = (req, res, next) => {
+    if (req.user) {
+        res.status(200).json({
+            message: 'Protected route accessed',
+            user: {
+                username: req.user.username,
+                email: req.user.email
+            }
+        });
+    } else {
+        res.status(401).json({ message: 'Not authorized' });
+    }
 };

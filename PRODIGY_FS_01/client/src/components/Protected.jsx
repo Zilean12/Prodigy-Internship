@@ -11,17 +11,23 @@ const Protected = () => {
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/');
+                    return;
+                }
+
                 const res = await axios.get('http://localhost:5000/api/auth/protected', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setMessage(res.data.message);
                 setUser(res.data.user);
             } catch (error) {
-                console.error(error.response.data);
+                console.error(error.response?.data);
+                navigate('/');
             }
         };
         fetchData();
-    }, []);
+    }, [navigate]);
 
     const handleLogout = () => {
         localStorage.removeItem('token');
