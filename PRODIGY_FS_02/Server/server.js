@@ -13,7 +13,8 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 const allowedOrigins = [
-  'https://prodigy-internship-fs02.onrender.com'
+  'https://prodigy-internship-fs02.onrender.com',
+  'https://prodigy-internship-fsii.vercel.app'
 ];
 
 app.use(cors({
