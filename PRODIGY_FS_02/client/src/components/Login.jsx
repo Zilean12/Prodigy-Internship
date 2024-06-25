@@ -12,7 +12,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { username: identifier, password });
+      const response = await axios.post('https://prodigy-internship-fs02.onrender.com/api/auth/login', { username: identifier, password });
       login(response.data.token);
       localStorage.setItem('username', identifier); // Set username in localStorage
       navigate('/employees');

@@ -35,7 +35,7 @@ const Register = () => {
     setError('');
     setPasswordError('');
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post('https://prodigy-internship-fs02.onrender.com/api/auth/register', {
         username,
         email,
         phone,

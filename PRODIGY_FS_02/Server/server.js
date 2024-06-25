@@ -11,8 +11,20 @@ const port = process.env.PORT || 5000;
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
 
+const allowedOrigins = [
+  'https://prodigy-internship-fs02.onrender.com'
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 // Routes
 app.use('/api/employees', employeeRoutes);
 app.use('/api/auth', authRoutes);

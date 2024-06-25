@@ -15,7 +15,7 @@ const EmployeeForm = () => {
       const token = localStorage.getItem('token');
       if (id) {
         try {
-          const response = await axios.get(`http://localhost:5000/api/employees/${id}`, {
+          const response = await axios.get(`https://prodigy-internship-fs02.onrender.com/api/employees/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -38,7 +38,7 @@ const EmployeeForm = () => {
     const token = localStorage.getItem('token');
     try {
       if (id) {
-        await axios.put(`http://localhost:5000/api/employees/${id}`, {
+        await axios.put(`https://prodigy-internship-fs02.onrender.com/api/employees/${id}`, {
           name,
           position,
           department,
@@ -49,7 +49,7 @@ const EmployeeForm = () => {
           },
         });
       } else {
-        await axios.post('http://localhost:5000/api/employees', {
+        await axios.post('https://prodigy-internship-fs02.onrender.com/api/employees', {
           name,
           position,
           department,

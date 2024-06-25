@@ -10,7 +10,7 @@ const EmployeeList = () => {
     const fetchEmployees = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:5000/api/employees', {
+        const response = await axios.get('https://prodigy-internship-fs02.onrender.com/api/employees', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -28,7 +28,7 @@ const EmployeeList = () => {
   const handleDelete = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:5000/api/employees/${id}`, {
+      await axios.delete(`https://prodigy-internship-fs02.onrender.com/api/employees/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
