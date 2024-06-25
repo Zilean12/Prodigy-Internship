@@ -16,7 +16,7 @@ const Protected = () => {
                     return;
                 }
 
-                const res = await axios.get('http://localhost:5000/api/auth/protected', {
+                const res = await axios.get('https://prodigy-internship.onrender.com/api/auth/protected', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setMessage(res.data.message);
