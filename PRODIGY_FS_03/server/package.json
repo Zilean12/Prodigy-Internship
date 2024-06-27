@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./server.js",
+    "build": "echo 'No build step required for server'",
+    "test": "echo 'No tests specified'",
+    "eject": "echo 'No eject step required'",
+    "dev": "nodemon ./server.js"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
