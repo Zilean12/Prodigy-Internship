@@ -99,7 +99,7 @@ exports.forgotPassword = async (req, res) => {
       from: process.env.EMAIL_USER,
       to: user.email,
       subject: 'Password Reset',
-      text: `Click the following link to reset your password: http://localhost:5000/reset-password/${token}`,
+      text: `Click the following link to reset your password: http://localhost:5173/reset-password/${token}`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -132,3 +132,25 @@ exports.resetPassword = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
+
+// exports.resetPassword = async (req, res) => {
+//   const { token } = req.params;
+//   const { newPassword } = req.body;
+
+//   try {
+//     const decoded = jwt.verify(token, JWT_SECRET);
+//     const user = await User.findById(decoded.id);
+//     if (!user) {
+//       return res.status(400).json({ message: 'Invalid token' });
+//     }
+
+//     // Hash the new password
+//     const salt = await bcrypt.genSalt(10);
+//     user.password = await bcrypt.hash(newPassword, salt);
+//     await user.save();
+
+//     res.json({ message: 'Password reset successfully' });
+//   } catch (error) {
+//     res.status(500).json({ message: 'Server error' });
+//   }
+// };

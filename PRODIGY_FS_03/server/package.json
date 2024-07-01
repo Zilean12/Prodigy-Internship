@@ -10,7 +10,6 @@
     "eject": "echo 'No eject step required'",
     "dev": "nodemon ./server.js"
   },
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
