@@ -26,39 +26,73 @@
 
 // export default App;
 
+// import React, { useState, useEffect } from 'react';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import Login from './components/Login';
+// import Register from './components/Register';
+// import ForgotPassword from './components/ForgotPassword';
+// import ResetPassword from './components/ResetPassword';
+// import Navbar from './components/Navbar';
+
+// const App = () => {
+//   const [user, setUser] = useState(null);
+
+//   useEffect(() => {
+//     const storedUser = localStorage.getItem('user');
+//     if (storedUser) {
+//       try {
+//         setUser(JSON.parse(storedUser));
+//       } catch (error) {
+//         console.error('Error parsing user from localStorage:', error);
+//       }
+//     }
+//   }, []);
+
+//   return (
+//     <Router>
+//       <Navbar user={user} setUser={setUser} />
+//       <Routes>
+//         <Route path="/login" element={<Login setUser={setUser} />} />
+//         <Route path="/register" element={<Register />} />
+//         <Route path="/forgot-password" element={<ForgotPassword />} />
+//         <Route path="/reset-password/:token" element={<ResetPassword />} />
+//       </Routes>
+//     </Router>
+//   );
+// };
+
+// export default App;
+
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
-// import other necessary components and pages
+import Navbar from './components/Navbar';
 
 const App = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const loggedUser = JSON.parse(localStorage.getItem('user'));
-    if (loggedUser) {
-      setUser(loggedUser);
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (error) {
+        console.error('Error parsing user from localStorage:', error);
+      }
     }
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    setUser(null);
-  };
-
   return (
     <Router>
-      <Navbar user={user} onLogout={handleLogout} />
+      <Navbar user={user} setUser={setUser} />
       <Routes>
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password/:token" component={ResetPassword} />
-                {/* other routes */}
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
       </Routes>
     </Router>
   );
