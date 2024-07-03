@@ -76,7 +76,7 @@
 //     console.error('Error notifying subscribers:', error);
 //   }
 // };
-
+//Subscription.controller.js
 const Subscription = require('../models/Subscription');
 const sendEmail = require('../utils/email');
 const emailTemplates = require('../utils/emailTemplates');
