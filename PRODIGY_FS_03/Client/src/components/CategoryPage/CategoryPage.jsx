@@ -22,24 +22,24 @@ const CategoryPage = () => {
   }, [category]);
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="text-red-500">{error}</div>;
   }
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">Products in {category} category</h1>
+      <h1 className="text-4xl font-bold text-center mb-8">Products in {category} Category</h1>
       {products.length === 0 ? (
-        <p>No products found in this category.</p>
+        <p className="text-center text-gray-500">No products found in this category.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product) => (
-            <div key={product._id} className="bg-white shadow-lg rounded-lg p-4">
-              <img src={product.image} alt={product.name} className="w-full h-48 object-cover rounded-t-lg" />
+            <div key={product._id} className="bg-white shadow-lg rounded-lg overflow-hidden">
+              <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
               <div className="p-4">
                 <h2 className="text-2xl font-semibold mb-2">{product.name}</h2>
                 <p className="text-gray-600 mb-4">{product.description}</p>
-                <p className="text-lg font-bold text-blue-500">${product.price}</p>
-                <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 mt-4">
+                <p className="text-lg font-bold text-blue-500 mb-4">${product.price}</p>
+                <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">
                   Add to Cart
                 </button>
               </div>
