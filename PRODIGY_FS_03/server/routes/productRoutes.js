@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllProducts, getProductById, createProduct, updateProduct, deleteProduct, searchProducts } = require('../controllers/productController');
+const { getAllProducts, getProductById, createProduct, updateProduct, deleteProduct, searchProducts, getProductsByCategory } = require('../controllers/productController');
 const { protect } = require('../middlewares/authMiddleware');
 
 // router.get('/', getAllProducts);
@@ -16,5 +16,6 @@ router.get('/:id', getProductById);
 router.post('/', protect, createProduct);
 router.put('/:id', protect, updateProduct);
 router.delete('/:id', protect, deleteProduct);
+router.get('/category/:category', getProductsByCategory);
 
 module.exports = router;

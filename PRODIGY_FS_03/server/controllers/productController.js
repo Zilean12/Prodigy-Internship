@@ -22,10 +22,10 @@ exports.getProductById = async (req, res) => {
 };
 
 exports.createProduct = async (req, res) => {
-  const { name, description, price, image, stock } = req.body;
+  const { name, description, price, image, stock, category} = req.body;
 
   try {
-    const product = new Product({ name, description, price, image, stock });
+    const product = new Product({ name, description, price, image, stock, category });
     await product.save();
 
     res.status(201).json(product);
@@ -70,5 +70,15 @@ exports.searchProducts = async (req, res) => {
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
+  }
+};
+
+exports.getProductsByCategory = async (req, res) => {
+  const { category } = req.params;
+  try {
+    const products = await Product.find({ category });
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };

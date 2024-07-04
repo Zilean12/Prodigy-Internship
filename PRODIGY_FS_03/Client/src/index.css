@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 /* @import 'animate.css'; */
-*{
+/* *{
   margin: 0;
   padding: 0;
 }
@@ -19,4 +19,4 @@ a{
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */

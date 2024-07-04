@@ -115,6 +115,7 @@ import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Home from './components/Home';
 import Footer from './components/Footer/Footer';
+import CategoryPage from './components/CategoryPage/CategoryPage'; // Import CategoryPage
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -140,6 +141,8 @@ const App = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/profile" element={<Profile user={user} />} />
+        <Route path="/category/:category" element={<CategoryPage />} /> {/* Add CategoryPage route */}
+
       </Routes>
       <Footer />
     </Router>

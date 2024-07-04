@@ -77,80 +77,80 @@
 
 // export default Navbar;
 
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+// import React, { useState } from 'react';
+// import { Link, useNavigate } from 'react-router-dom';
 
-const Navbar = ({ user, setUser }) => {
-  const navigate = useNavigate();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+// const Navbar = ({ user, setUser }) => {
+//   const navigate = useNavigate();
+//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    setUser(null);
-    navigate('/login');
-  };
+//   const handleLogout = () => {
+//     localStorage.removeItem('user');
+//     setUser(null);
+//     navigate('/login');
+//   };
 
-  const handleMouseEnter = () => {
-    setIsDropdownOpen(true);
-  };
+//   const handleMouseEnter = () => {
+//     setIsDropdownOpen(true);
+//   };
 
-  const handleMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
+//   const handleMouseLeave = () => {
+//     setIsDropdownOpen(false);
+//   };
 
-  return (
-    <nav className="bg-gray-800 p-4 text-white">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-xl font-bold">
-          <Link to="/">ZUShop</Link>
-        </div>
-        <div>
-          {user ? (
-            <div
-              className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button className="bg-gray-700 px-4 py-2 rounded">
-                {user.username}
-              </button>
-              {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20">
-                  <Link
-                    to="/profile"
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                  >
-                    User Profile
-                  </Link>
-                  <button
-                    onClick={handleLogout}
-                    className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200"
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
-            </div>
-          ) : (
-            <>
-              <Link to="/login" className="px-4 py-2">
-                Login
-              </Link>
-              <Link to="/register" className="px-4 py-2">
-                Register
-              </Link>
-            </>
-          )}
-        </div>
-      </div>
-    </nav>
-  );
-};
+//   return (
+//     <nav className="bg-gray-800 p-4 text-white">
+//       <div className="container mx-auto flex justify-between items-center">
+//         <div className="text-xl font-bold">
+//           <Link to="/">ZUShop</Link>
+//         </div>
+//         <div>
+//           {user ? (
+//             <div
+//               className="relative"
+//               onMouseEnter={handleMouseEnter}
+//               onMouseLeave={handleMouseLeave}
+//             >
+//               <button className="bg-gray-700 px-4 py-2 rounded">
+//                 {user.username}
+//               </button>
+//               {isDropdownOpen && (
+//                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20">
+//                   <Link
+//                     to="/profile"
+//                     className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+//                   >
+//                     User Profile
+//                   </Link>
+//                   <button
+//                     onClick={handleLogout}
+//                     className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200"
+//                   >
+//                     Logout
+//                   </button>
+//                 </div>
+//               )}
+//             </div>
+//           ) : (
+//             <>
+//               <Link to="/login" className="px-4 py-2">
+//                 Login
+//               </Link>
+//               <Link to="/register" className="px-4 py-2">
+//                 Register
+//               </Link>
+//             </>
+//           )}
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// };
 
-export default Navbar;
+// export default Navbar;
 
 
-// import React from 'react';
+// // import React from 'react';
 // import { Link, useNavigate } from 'react-router-dom';
 
 // const Navbar = ({ user, setUser }) => {
@@ -206,3 +206,103 @@ export default Navbar;
 // };
 
 // export default Navbar;
+
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+const Navbar = ({ user, setUser }) => {
+  const navigate = useNavigate();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    navigate('/login');
+  };
+
+  const handleMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const handleCategoryMouseEnter = () => {
+    setIsCategoryOpen(true);
+  };
+
+  const handleCategoryMouseLeave = () => {
+    setIsCategoryOpen(false);
+  };
+
+  return (
+    <nav className="bg-gray-800 p-4 text-white">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="text-xl font-bold">
+          <Link to="/">ZUShop</Link>
+        </div>
+        <div className="flex items-center">
+          <div
+            className="relative"
+            onMouseEnter={handleCategoryMouseEnter}
+            onMouseLeave={handleCategoryMouseLeave}
+          >
+            <button className="bg-gray-700 px-4 py-2 rounded">
+              Categories
+            </button>
+            {isCategoryOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20">
+                <Link to="/category/shoes" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                  Shoes
+                </Link>
+                <Link to="/category/bags" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                  Bags
+                </Link>
+                <Link to="/category/clothing" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                  Clothing
+                </Link>
+                <Link to="/category/accessories" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                  Accessories
+                </Link>
+              </div>
+            )}
+          </div>
+          {user ? (
+            <div
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button className="bg-gray-700 px-4 py-2 rounded">
+                {user.username}
+              </button>
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20">
+                  <Link to="/profile" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                    User Profile
+                  </Link>
+                  <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
+              <Link to="/login" className="px-4 py-2">
+                Login
+              </Link>
+              <Link to="/register" className="px-4 py-2">
+                Register
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
