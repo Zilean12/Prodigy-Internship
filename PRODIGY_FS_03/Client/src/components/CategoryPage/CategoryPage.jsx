@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import ProductCard from '../ProductCard/ProductCard';
 
-const CategoryPage = () => {
+const CategoryPage = ({ addToCart }) => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
@@ -33,17 +34,7 @@ const CategoryPage = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product) => (
-            <div key={product._id} className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
-              <div className="p-4">
-                <h2 className="text-2xl font-semibold mb-2">{product.name}</h2>
-                <p className="text-gray-600 mb-4">{product.description}</p>
-                <p className="text-lg font-bold text-blue-500 mb-4">${product.price}</p>
-                <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
+            <ProductCard key={product._id} product={product} addToCart={addToCart} /> // Pass addToCart here
           ))}
         </div>
       )}

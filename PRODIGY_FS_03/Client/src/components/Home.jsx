@@ -66,16 +66,56 @@
 
 // Home.jsx
 
+// import React, { useEffect, useState } from 'react';
+// import Header from './Header/Header';
+// import NewsletterSubscribe from './Newsletter/NewsletterSubscribe';
+// import ProductCard from './ProductCard/ProductCard';
+
+// const Home = ({ addToCart }) => {
+//   const [products, setProducts] = useState([]);
+
+//   useEffect(() => {
+//     fetch('http://localhost:5000/api/products')
+//       .then(response => response.json())
+//       .then(data => setProducts(data))
+//       .catch(error => console.error('Error fetching products:', error));
+//   }, []);
+
+//   return (
+//     <div className="bg-gradient-to-r from-blue-100 to-purple-100 min-h-screen flex flex-col">
+//       <Header />
+//       <main className="container mx-auto p-6 flex-grow">
+//         <header className="text-center mb-12">
+//           <h1 className="text-6xl font-extrabold mb-4 text-blue-700">Welcome to ZUShop</h1>
+//           <p className="text-2xl text-gray-700">Your one-stop shop for all your needs</p>
+//         </header>
+
+//         <section id="products" className="mb-16">
+//           <h2 className="text-4xl font-semibold mb-8 text-gray-800">Featured Products</h2>
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+//             {products.map(product => (
+//               <ProductCard key={product.id} product={product} addToCart={addToCart} /> 
+//             ))}
+//           </div>
+//         </section>
+
+//         <NewsletterSubscribe />
+//       </main>
+//     </div>
+//   );
+// };
+
+// export default Home;
+
 import React, { useEffect, useState } from 'react';
 import Header from './Header/Header';
 import NewsletterSubscribe from './Newsletter/NewsletterSubscribe';
 import ProductCard from './ProductCard/ProductCard';
 
-const Home = () => {
+const Home = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch products from an API or define them statically
     fetch('http://localhost:5000/api/products')
       .then(response => response.json())
       .then(data => setProducts(data))
@@ -95,7 +135,7 @@ const Home = () => {
           <h2 className="text-4xl font-semibold mb-8 text-gray-800">Featured Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {products.map(product => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product._id} product={product} addToCart={addToCart} />
             ))}
           </div>
         </section>
