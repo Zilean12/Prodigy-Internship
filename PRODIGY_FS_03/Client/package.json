@@ -16,6 +16,7 @@
     "react": "^18.3.1",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.3.1",
+    "react-modal-image": "^2.6.0",
     "react-router-dom": "^6.24.0"
   },
   "devDependencies": {
