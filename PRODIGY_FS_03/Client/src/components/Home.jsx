@@ -142,11 +142,11 @@ const Home = ({ addToCart }) => {
 
         <NewsletterSubscribe />
 
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <Link to="/support" className="text-blue-700 underline">
             Need Help? Submit a Support Ticket
           </Link>
-        </div>
+        </div> */}
       </main>
     </div>
   );

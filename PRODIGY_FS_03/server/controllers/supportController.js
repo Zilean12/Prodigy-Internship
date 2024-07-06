@@ -105,6 +105,19 @@ exports.getSupportTickets = async (req, res) => {
   }
 };
 
+exports.getSupportTicketById = async (req, res) => {
+  try {
+    const ticket = await SupportTicket.findById(req.params.id);
+    if (!ticket) {
+      return res.status(404).json({ message: 'Ticket not found' });
+    }
+    res.json(ticket);
+  } catch (error) {
+    console.error('Error fetching ticket:', error.message); // Detailed error message
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 exports.getAllSupportTickets = async (req, res) => {
   try {
     const supportTickets = await SupportTicket.find().populate('userId', 'username email phone');

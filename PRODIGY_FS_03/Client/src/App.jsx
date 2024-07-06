@@ -291,6 +291,7 @@ import SearchResultsPage from './components/Search/SearchResultsPage';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import Cart from './components/Cart/Cart';
 import SupportTicket from './components/SupportTicket/SupportTicket';
+import CheckTicketStatus from './components/SupportTicket/CheckTicketStatus';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -326,6 +327,7 @@ const App = () => {
         <Route path="/category/:category" element={<CategoryPage addToCart={addToCart} />} />
         <Route path="/search" element={<SearchResultsPage addToCart={addToCart} />} />
         <Route path="/support" element={<SupportTicket />} />
+        <Route path="/check-ticket-status" element={<CheckTicketStatus />} />
 
       </Routes>
       <Footer />
