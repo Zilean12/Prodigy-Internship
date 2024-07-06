@@ -19,6 +19,8 @@ const { protect, admin } = require('../middlewares/authMiddleware');
 
 // User routes
 router.post('/', protect, createSupportTicket);
+
+// router.post('/', protect, createSupportTicket);
 router.get('/', protect, getSupportTickets);
 
 // Admin routes

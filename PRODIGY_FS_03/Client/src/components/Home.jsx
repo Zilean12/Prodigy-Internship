@@ -106,8 +106,8 @@
 // };
 
 // export default Home;
-
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header/Header';
 import NewsletterSubscribe from './Newsletter/NewsletterSubscribe';
 import ProductCard from './ProductCard/ProductCard';
@@ -141,6 +141,12 @@ const Home = ({ addToCart }) => {
         </section>
 
         <NewsletterSubscribe />
+
+        <div className="mt-12 text-center">
+          <Link to="/support" className="text-blue-700 underline">
+            Need Help? Submit a Support Ticket
+          </Link>
+        </div>
       </main>
     </div>
   );

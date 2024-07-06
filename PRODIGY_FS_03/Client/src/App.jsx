@@ -290,6 +290,7 @@ import CategoryPage from './components/CategoryPage/CategoryPage';
 import SearchResultsPage from './components/Search/SearchResultsPage';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import Cart from './components/Cart/Cart';
+import SupportTicket from './components/SupportTicket/SupportTicket';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -324,6 +325,8 @@ const App = () => {
         <Route path="/cart" element={<Cart cart={cart} />} />
         <Route path="/category/:category" element={<CategoryPage addToCart={addToCart} />} />
         <Route path="/search" element={<SearchResultsPage addToCart={addToCart} />} />
+        <Route path="/support" element={<SupportTicket />} />
+
       </Routes>
       <Footer />
     </Router>
