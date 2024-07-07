@@ -39,8 +39,8 @@
 
 // module.exports = mongoose.model('Product', productSchema);
 
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const mongoose = require('mongoose');
+// const Schema = mongoose.Schema;
 
 // const reviewSchema = new Schema({
 //   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
@@ -48,6 +48,9 @@ const Schema = mongoose.Schema;
 //   comment: { type: String, required: true },
 //   createdAt: { type: Date, default: Date.now }
 // });
+
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 const reviewSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
@@ -60,10 +63,10 @@ const productSchema = new Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
   price: { type: Number, required: true },
-  image: { type: String },
+  image: { type: String, required: true },
   stock: { type: Number, required: true, default: 0 },
   category: { type: String, required: true },
   reviews: [reviewSchema]
-});
+}); 
 
 module.exports = mongoose.model('Product', productSchema);

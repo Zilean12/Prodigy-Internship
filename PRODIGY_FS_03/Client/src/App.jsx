@@ -292,6 +292,8 @@ import ProductDetail from './components/ProductDetail/ProductDetail';
 import Cart from './components/Cart/Cart';
 import SupportTicket from './components/SupportTicket/SupportTicket';
 import CheckTicketStatus from './components/SupportTicket/CheckTicketStatus';
+import AdminDashboard from './Admin/Dashboard/AdminDashboard';
+import EditProduct from './Admin/Product/EditProduct';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -316,6 +318,9 @@ const App = () => {
     <Router>
       <Navbar user={user} setUser={setUser} cart={cart} />
       <Routes>
+
+{/* Clide Side */}
+
         <Route path="/" element={<Home addToCart={addToCart} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register />} />
@@ -328,6 +333,12 @@ const App = () => {
         <Route path="/search" element={<SearchResultsPage addToCart={addToCart} />} />
         <Route path="/support" element={<SupportTicket />} />
         <Route path="/check-ticket-status" element={<CheckTicketStatus />} />
+
+{/* ADMIN SIDE */}
+
+        {/* <Route path="/admin-dashboard/*" element={<AdminDashboard />} /> */}
+        <Route path="/admin-dashboard/*" element={<AdminDashboard user={user} />} />
+        <Route path="/admin-dashboard/edit-product/:id" element={<EditProduct />} />
 
       </Routes>
       <Footer />

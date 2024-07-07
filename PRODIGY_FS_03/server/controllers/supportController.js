@@ -128,24 +128,74 @@ exports.getAllSupportTickets = async (req, res) => {
   }
 };
 
-exports.updateSupportTicketStatus = async (req, res) => {
-    try {
-      const { status } = req.body;
+// exports.updateSupportTicketStatus = async (req, res) => {
+//     try {
+//       const { status } = req.body;
       
-      // Find the support ticket by ID
-      const supportTicket = await SupportTicket.findById(req.params.id);
+//       // Find the support ticket by ID
+//       const supportTicket = await SupportTicket.findById(req.params.id);
   
-      if (!supportTicket) {
-        return res.status(404).json({ message: 'Support ticket not found' });
-      }
+//       if (!supportTicket) {
+//         return res.status(404).json({ message: 'Support ticket not found' });
+//       }
   
-      // Update the status of the support ticket
-      supportTicket.status = status;
-      await supportTicket.save();
+//       // Update the status of the support ticket
+//       supportTicket.status = status;
+//       await supportTicket.save();
   
-      res.json({ message: 'Support ticket status updated successfully', supportTicket });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Server error' });
-    }
+//       res.json({ message: 'Support ticket status updated successfully', supportTicket });
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ message: 'Server error' });
+//     }
+//   };
+
+  // Function to send status update email
+const sendStatusUpdateEmail = async (ticket) => {
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: ticket.userId.email,
+    subject: `Your support ticket (${ticket.subject}) status has been updated`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #333; text-align: center; margin-bottom: 20px;">Ticket Status Updated</h2>
+        <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+          <p style="color: #555; font-size: 16px; line-height: 1.5; margin-bottom: 10px;"><strong>Subject:</strong> ${ticket.subject}</p>
+          <p style="color: #555; font-size: 16px; line-height: 1.5; margin-bottom: 10px;"><strong>Status:</strong> ${ticket.status}</p>
+          <p style="color: #555; font-size: 16px; line-height: 1.5; margin-bottom: 10px;"><strong>Message:</strong> ${ticket.message}</p>
+        </div>
+        <p style="color: #555; font-size: 16px; line-height: 1.5; margin-bottom: 20px;">Please check your ticket for more details.</p>
+        <p style="color: #999; font-size: 14px; text-align: center;">This email was automatically generated. Please do not reply.</p>
+      </div>
+    `,
   };
+
+  await transporter.sendMail(mailOptions);
+};
+
+exports.updateSupportTicketStatus = async (req, res) => {
+  try {
+    const { status } = req.body;
+
+    // Find the support ticket by ID
+    const supportTicket = await SupportTicket.findById(req.params.id).populate('userId', 'email');
+
+    if (!supportTicket) {
+      return res.status(404).json({ message: 'Support ticket not found' });
+    }
+
+    // Update the status of the support ticket
+    supportTicket.status = status;
+    await supportTicket.save();
+
+    // Send email if the status is closed
+    if (status === 'closed') {
+      await sendStatusUpdateEmail(supportTicket);
+    }
+
+    res.json({ message: 'Support ticket status updated successfully', supportTicket });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};

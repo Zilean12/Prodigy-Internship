@@ -36,6 +36,7 @@ exports.getProductById = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
   const { name, description, price, image, stock, category} = req.body;
+  console.log('Request Body:', req.body); // Log the request body
 
   try {
     const product = new Product({ name, description, price, image, stock, category });
