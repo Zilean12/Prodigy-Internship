@@ -7,7 +7,7 @@ const Cart = ({ cart, user }) => {
   const handleCheckout = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/orders/buy',
+        'https://prodigy-internship-fs03.onrender.com/api/orders/buy',
         { products: cart.map(product => ({ productId: product._id, quantity: 1 })) },
         {
           headers: {

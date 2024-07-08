@@ -21,7 +21,7 @@ const EditProduct = () => {
     const fetchProduct = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/api/products/${id}`, {
+        const response = await axios.get(`https://prodigy-internship-fs03.onrender.com/api/products/${id}`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -46,7 +46,7 @@ const EditProduct = () => {
     const token = localStorage.getItem('token');
 
     try {
-      await axios.put(`http://localhost:5000/api/products/${id}`, formData, {
+      await axios.put(`https://prodigy-internship-fs03.onrender.com/api/products/${id}`, formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

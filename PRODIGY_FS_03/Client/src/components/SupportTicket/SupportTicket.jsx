@@ -18,7 +18,7 @@ const SupportTicket = () => {
     }
   
     try {
-      const response = await axios.post('http://localhost:5000/api/support', {
+      const response = await axios.post('https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/support', {
         subject,
         message,
         contactMethod,

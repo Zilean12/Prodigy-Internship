@@ -12,7 +12,7 @@ const ResetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:5000/api/auth/reset-password/${token}`, { newPassword });
+      const response = await axios.post(`https://prodigy-internship-fs03.onrender.com/api/auth/reset-password/${token}`, { newPassword });
       setMessage(response.data.message);
       setError('');
       // Optionally, redirect to login page

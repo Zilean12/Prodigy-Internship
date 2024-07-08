@@ -18,7 +18,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       await axios.post('http://localhost:5000/api/auth/login', formData);
+//       await axios.post('https://prodigy-internship-fs03.onrender.com/api/auth/login', formData);
 //       navigate('/');
 //     } catch (err) {
 //       setError(err.response.data.message);
@@ -98,9 +98,9 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+//       const response = await axios.post('https://prodigy-internship-fs03.onrender.com/api/auth/login', formData);
 //       const { token } = response.data;
-//       const userResponse = await axios.get('http://localhost:5000/api/auth/me', {
+//       const userResponse = await axios.get('https://prodigy-internship-fs03.onrender.com/api/auth/me', {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //         },
@@ -187,13 +187,13 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+//       const response = await axios.post('https://prodigy-internship-fs03.onrender.com/api/auth/login', formData);
 //       const { token } = response.data;
 
 //       // Save token in localStorage
 //       localStorage.setItem('token', token);
 
-//       const userResponse = await axios.get('http://localhost:5000/api/auth/me', {
+//       const userResponse = await axios.get('https://prodigy-internship-fs03.onrender.com/api/auth/me', {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //         },
@@ -283,13 +283,13 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await axios.post('https://prodigy-internship-fs03.onrender.com/api/auth/login', formData);
       const { token } = response.data;
 
       // Save token in localStorage
       localStorage.setItem('token', token);
 
-      const userResponse = await axios.get('http://localhost:5000/api/auth/me', {
+      const userResponse = await axios.get('https://prodigy-internship-fs03.onrender.com/api/auth/me', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

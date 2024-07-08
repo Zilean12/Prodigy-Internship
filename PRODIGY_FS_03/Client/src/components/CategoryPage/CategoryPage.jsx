@@ -11,7 +11,7 @@ const CategoryPage = ({ addToCart }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/products/category/${category}`);
+        const response = await axios.get(`https://prodigy-internship-fs03.onrender.com/api/products/category/${category}`);
         setProducts(response.data);
       } catch (err) {
         setError('Failed to fetch products');

@@ -160,7 +160,7 @@ exports.subscriptionConfirmation = (email, unsubscribeToken) => `
             <p>You will receive updates about product launches, discounts, and newsletters.</p>
             <p>If you did not subscribe to this service, please ignore this email.</p>
             <p>If you wish to unsubscribe, please click the link below:</p>
-            <a class="button" href="http://localhost:5000/api/subscribe/unsubscribe?token=${unsubscribeToken}">Unsubscribe</a>
+            <a class="button" href="https://prodigy-internship-fs03.onrender.com/api/subscribe/unsubscribe?token=${unsubscribeToken}">Unsubscribe</a>
         </div>
         <div class="footer">
             <p>&copy; 2024 Your Company. All rights reserved.</p>
@@ -218,7 +218,7 @@ exports.alreadySubscribed = (email, unsubscribeToken) => `
             <p>You are already subscribed to our notifications.</p>
             <p>If you did not subscribe to this service, please ignore this email.</p>
             <p>If you wish to unsubscribe, please click the link below:</p>
-            <a class="button" href="http://localhost:5000/api/subscribe/unsubscribe?token=${unsubscribeToken}">Unsubscribe</a>
+            <a class="button" href="https://prodigy-internship-fs03.onrender.com/api/subscribe/unsubscribe?token=${unsubscribeToken}">Unsubscribe</a>
         </div>
         <div class="footer">
             <p>&copy; 2024 Your Company. All rights reserved.</p>

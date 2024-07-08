@@ -16,9 +16,21 @@ const subscriptionRoutes = require('./routes/subscriptionRoutes'); // Add this l
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
-app.use(cors());
 app.use(bodyParser.json());
+
+// app.use(cors());
+const allowedOrigins = [
+  'https://prodigy-internship-fs03.onrender.com'];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,

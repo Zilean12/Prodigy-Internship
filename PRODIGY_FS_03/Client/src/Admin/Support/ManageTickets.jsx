@@ -15,7 +15,7 @@ const ManageTickets = () => {
           throw new Error('No token found');
         }
 
-        const response = await axios.get('http://localhost:5000/api/support/all', {
+        const response = await axios.get('https://prodigy-internship-fs03.onrender.com/api/support/all', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -38,7 +38,7 @@ const ManageTickets = () => {
         throw new Error('No token found');
       }
 
-      await axios.put(`http://localhost:5000/api/support/${id}/status`, { status }, {
+      await axios.put(`https://prodigy-internship-fs03.onrender.com/api/support/${id}/status`, { status }, {
         headers: {
           Authorization: `Bearer ${token}`
         }

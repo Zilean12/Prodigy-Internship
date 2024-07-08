@@ -16,7 +16,7 @@ const CheckTicketStatus = () => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:5000/api/support/${ticketId}`, {
+      const response = await axios.get(`https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/support/${ticketId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

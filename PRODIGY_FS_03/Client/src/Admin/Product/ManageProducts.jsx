@@ -11,7 +11,7 @@ const ManageProducts = () => {
     const fetchProducts = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/products', {
+        const response = await axios.get('https://prodigy-internship-fs03.onrender.com/api/products', {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -28,7 +28,7 @@ const ManageProducts = () => {
   const handleDelete = async (productId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/products/${productId}`, {
+      await axios.delete(`https://prodigy-internship-fs03.onrender.com/api/products/${productId}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

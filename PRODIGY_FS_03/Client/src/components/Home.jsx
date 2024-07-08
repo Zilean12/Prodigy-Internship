@@ -75,7 +75,7 @@
 //   const [products, setProducts] = useState([]);
 
 //   useEffect(() => {
-//     fetch('http://localhost:5000/api/products')
+//     fetch('https://prodigy-internship-fs03.onrender.com/api/products')
 //       .then(response => response.json())
 //       .then(data => setProducts(data))
 //       .catch(error => console.error('Error fetching products:', error));
@@ -116,7 +116,7 @@ const Home = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/products')
+    fetch('https://prodigy-internship-fs03.onrender.com/api/products')
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));

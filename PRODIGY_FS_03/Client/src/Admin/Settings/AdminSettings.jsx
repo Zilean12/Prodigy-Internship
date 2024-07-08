@@ -19,7 +19,7 @@ const AdminSettings = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
-        const { data } = await axios.get('http://localhost:5000/api/profile/', {
+        const { data } = await axios.get('https://prodigy-internship-fs03.onrender.com/api/profile/', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -46,7 +46,7 @@ const AdminSettings = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const { data } = await axios.put('http://localhost:5000/api/profile/', profile, {
+      const { data } = await axios.put('https://prodigy-internship-fs03.onrender.com/api/profile/', profile, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

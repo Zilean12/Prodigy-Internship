@@ -59,7 +59,7 @@
 //   useEffect(() => {
 //     const fetchProduct = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:5000/api/products/${id}`);
+//         const response = await axios.get(`https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/products/${id}`);
 //         setProduct(response.data);
 //         setLoading(false);
 //       } catch (err) {
@@ -153,7 +153,7 @@
 //   useEffect(() => {
 //     const fetchProduct = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:5000/api/products/${id}`);
+//         const response = await axios.get(`https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/products/${id}`);
 //         setProduct(response.data);
 //         setReviews(response.data.reviews);
 //         setLoading(false);
@@ -176,7 +176,7 @@
 //     }
 
 //     try {
-//       const response = await axios.post(`http://localhost:5000/api/products/${id}/review`, review, {
+//       const response = await axios.post(`https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/products/${id}/review`, review, {
 //         headers: {
 //           Authorization: `Bearer ${token}`
 //         }
@@ -280,7 +280,7 @@
 //   useEffect(() => {
 //     const fetchProduct = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:5000/api/products/${id}`);
+//         const response = await axios.get(`https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/products/${id}`);
 //         setProduct(response.data);
 //         setReviews(response.data.reviews);
 //         setLoading(false);
@@ -303,7 +303,7 @@
 //     }
 
 //     try {
-//       const response = await axios.post(`http://localhost:5000/api/products/${id}/review`, review, {
+//       const response = await axios.post(`https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/products/${id}/review`, review, {
 //         headers: {
 //           Authorization: `Bearer ${token}`
 //         }
@@ -408,7 +408,7 @@ const ProductDetail = ({ addToCart }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/products/${id}`);
+        const response = await axios.get(`https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/products/${id}`);
         setProduct(response.data);
         setReviews(response.data.reviews);
         setLoading(false);
@@ -431,7 +431,7 @@ const ProductDetail = ({ addToCart }) => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:5000/api/products/${id}/review`, review, {
+      const response = await axios.post(`https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/products/${id}/review`, review, {
         headers: {
           Authorization: `Bearer ${token}`
         }

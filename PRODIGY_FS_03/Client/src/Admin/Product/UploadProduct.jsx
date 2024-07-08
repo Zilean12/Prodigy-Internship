@@ -24,7 +24,7 @@ const UploadProduct = () => {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/products', formData, {
+      const response = await axios.post('https://prodigy-internship-fs03.onrender.com/api/products', formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

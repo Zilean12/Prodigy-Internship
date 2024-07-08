@@ -12,7 +12,7 @@ const SearchResultsPage = ({ addToCart }) => {
   useEffect(() => {
     const fetchSearchResults = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/products/search?query=${query}`);
+        const response = await axios.get(`https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/products/search?query=${query}`);
         setProducts(response.data);
       } catch (error) {
         setError('Error fetching search results');
