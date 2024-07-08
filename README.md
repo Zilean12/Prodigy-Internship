@@ -38,4 +38,4 @@ Created a Local Store E-commerce Platform allowing users to browse products, add
 |-------------|-------------------------------------------|-----------------------------------------------------|
 | Task 1      | Secure User Authentication                | [Live Website](https://prodigy-internship-sigma.vercel.app)|
 | Task 2      | Employee Management System                | [Live Website](https://prodigy-internship-fsii.vercel.app)|
-| Task 3      | Local Store E-commerce Platform           | [Live Website](https://example.com/task3)           |
+| Task 3      | Local Store E-commerce Platform           | [Live Website](prodigy-internship-iii.vercel.app)        |
