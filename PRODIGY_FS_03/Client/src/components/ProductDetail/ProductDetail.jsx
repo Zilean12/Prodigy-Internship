@@ -431,7 +431,7 @@ const ProductDetail = ({ addToCart }) => {
     }
 
     try {
-      const response = await axios.post(`https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/products/${id}/review`, review, {
+      const response = await axios.post(`https://prodigy-internship-fs03.onrender.com/api/products/${id}/review`, review, {
         headers: {
           Authorization: `Bearer ${token}`
         }
