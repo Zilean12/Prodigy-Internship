@@ -158,37 +158,77 @@ exports.trackOrder = async (req, res) => {
   }
 };
 
+// exports.buyProduct = async (req, res) => {
+//   try {
+//     const product = await Product.findById(req.body.productId);
+//     if (!product) {
+//       return res.status(404).json({ message: 'Product not found' });
+//     }
+//     if (product.stock < req.body.quantity) {
+//       return res.status(400).json({ message: 'Not enough stock' });
+//     }
+    
+//     product.stock -= req.body.quantity;
+//     await product.save();
+
+//     const totalAmount = product.price * req.body.quantity;
+    
+//     const newOrder = new Order({
+//       userId: req.user.id,
+//       products: [{ productId: product._id, quantity: req.body.quantity }],
+//       totalAmount
+//     });
+    
+//     const savedOrder = await newOrder.save();
+    
+//     const user = await User.findById(req.user.id);
+//     sendOrderEmail(user, savedOrder);
+    
+//     res.status(201).json({ message: 'Product bought successfully', order: savedOrder });
+//   } catch (error) {
+//     res.status(500).json({ message: 'Server error' });
+//   }
+// };
+
 exports.buyProduct = async (req, res) => {
   try {
-    const product = await Product.findById(req.body.productId);
-    if (!product) {
-      return res.status(404).json({ message: 'Product not found' });
-    }
-    if (product.stock < req.body.quantity) {
-      return res.status(400).json({ message: 'Not enough stock' });
-    }
-    
-    product.stock -= req.body.quantity;
-    await product.save();
+    const { products } = req.body;
 
-    const totalAmount = product.price * req.body.quantity;
-    
+    let totalAmount = 0;
+    const productDetails = await Promise.all(
+      products.map(async (item) => {
+        const product = await Product.findById(item.productId);
+        if (!product) {
+          throw new Error(`Product with ID ${item.productId} not found`);
+        }
+        if (product.stock < item.quantity) {
+          throw new Error(`Not enough stock for product: ${product.name}`);
+        }
+        product.stock -= item.quantity;
+        await product.save();
+        totalAmount += product.price * item.quantity;
+        return { productId: product._id, quantity: item.quantity };
+      })
+    );
+
     const newOrder = new Order({
       userId: req.user.id,
-      products: [{ productId: product._id, quantity: req.body.quantity }],
-      totalAmount
+      products: productDetails,
+      totalAmount,
     });
-    
+
     const savedOrder = await newOrder.save();
-    
+
     const user = await User.findById(req.user.id);
     sendOrderEmail(user, savedOrder);
-    
-    res.status(201).json({ message: 'Product bought successfully', order: savedOrder });
+
+    res.status(201).json({ message: 'Order placed successfully', order: savedOrder });
   } catch (error) {
+    console.error('Error placing order:', error);
     res.status(500).json({ message: 'Server error' });
   }
 };
+
 
 exports.updateOrderStatus = async (req, res) => {
   try {

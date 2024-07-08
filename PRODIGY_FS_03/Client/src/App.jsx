@@ -437,6 +437,8 @@ import SupportTicket from './components/SupportTicket/SupportTicket';
 import CheckTicketStatus from './components/SupportTicket/CheckTicketStatus';
 import AdminDashboard from './Admin/Dashboard/AdminDashboard';
 import EditProduct from './Admin/Product/EditProduct';
+import OrderHistory from './components/Order/OrderHistory';
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -474,6 +476,7 @@ const App = () => {
         <Route path="/search" element={user ? <SearchResultsPage addToCart={addToCart} /> : <Navigate to="/login" />} />
         <Route path="/support" element={user ? <SupportTicket /> : <Navigate to="/login" />} />
         <Route path="/check-ticket-status" element={user ? <CheckTicketStatus /> : <Navigate to="/login" />} />
+        <Route path="/order-history" element={<OrderHistory />} />
 
         {/* Admin Side */}
         {user?.role === 'admin' && (
