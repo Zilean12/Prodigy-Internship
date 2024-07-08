@@ -6,7 +6,7 @@ const NewsLetter = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('https://prodigy-internship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.comnship-fs03.onrender.com/api/subscribe', {
+    fetch('https://prodigy-internship-fs03.onrender.com/api/subscribe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
